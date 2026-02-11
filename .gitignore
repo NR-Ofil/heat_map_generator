@@ -1,0 +1,58 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+*.spec
+build/
+dist/
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project specific
+*.npy
+*.mov
+*.mp4
+*.avi
+*.mkv
+*.webm
+results_for_users/
+
+# Keep build scripts but ignore outputs
+!build_exe.py
+!build_exe.bat
+!build_viewer_exe.py
+!build_viewer_exe.bat
+

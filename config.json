@@ -1,0 +1,18 @@
+{
+  "frame_stride": 1,
+  "red_detection": {
+    "lower_red_1": [0, 120, 80],
+    "upper_red_1": [10, 255, 255],
+    "lower_red_2": [170, 120, 80],
+    "upper_red_2": [179, 255, 255]
+  },
+  "morphology": {
+    "kernel_size": 3
+  },
+  "persistent_frac_threshold": 0.8,
+  "blur_sigma": 2.0,
+  "colormap": "JET",
+  "overlay_alpha": 0.55,
+  "threshold_pct": 180,
+  "output_dir": "results_for_users"
+}

@@ -13,7 +13,9 @@ main_script = "video_processor_app.py"
 # Additional data files to include
 datas = [
     ("config.py", "."),
+    ("config.json", "."),
     ("video_processor.py", "."),
+    ("overlay_gui.py", "."),
 ]
 
 # Hidden imports (modules that PyInstaller might not detect automatically)

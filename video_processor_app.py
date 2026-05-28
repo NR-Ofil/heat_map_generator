@@ -456,15 +456,22 @@ class MainApp:
     
     def open_viewer(self):
         """Open the heatmap viewer app."""
-        try:
-            # Get the path to heatmap_viewer.py
-            viewer_script = Path(__file__).parent / "heatmap_viewer.py"
-            if viewer_script.exists():
-                subprocess.Popen([sys.executable, str(viewer_script)])
+        if getattr(sys, 'frozen', False):
+            # Running as a bundled exe — launch the companion HeatmapViewer.exe
+            viewer_exe = Path(sys.executable).parent / "HeatmapViewer.exe"
+            if viewer_exe.exists():
+                subprocess.Popen([str(viewer_exe)])
             else:
-                messagebox.showerror("Error", f"Heatmap viewer not found:\n{viewer_script}")
-        except Exception as e:
-            messagebox.showerror("Error", f"Failed to open heatmap viewer:\n{e}")
+                messagebox.showerror(
+                    "Error",
+                    f"HeatmapViewer.exe not found next to this application.\n"
+                    f"Expected: {viewer_exe}"
+                )
+        else:
+            # Running as a script — open viewer inline as a child window
+            from heatmap_viewer import MainApp as HeatmapViewerApp
+            viewer_window = tk.Toplevel(self.root)
+            HeatmapViewerApp(viewer_window)
 
 
 def main():

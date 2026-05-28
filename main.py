@@ -104,10 +104,15 @@ def main():
     output_dir = ensure_output_dir()
     
     if args.all or args.video is None:
-        # Process all .mov files in current directory
-        video_files = list(Path(".").glob("*.mov"))
+        # Process all supported video files in current directory
+        extensions = ["*.mov", "*.mp4", "*.avi", "*.mkv", "*.webm",
+                      "*.MOV", "*.MP4", "*.AVI", "*.MKV", "*.WEBM"]
+        video_files = []
+        for ext in extensions:
+            video_files.extend(Path(".").glob(ext))
+        video_files = sorted(set(video_files))
         if not video_files:
-            print("No .mov files found in current directory.")
+            print("No video files found in current directory.")
             sys.exit(1)
         
         print(f"Found {len(video_files)} video file(s) to process\n")
